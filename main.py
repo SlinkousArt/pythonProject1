@@ -17,7 +17,7 @@ if PlayerChoice != "Rock" and PlayerChoice != "Paper" and PlayerChoice != "Sciss
     print("invalid input, relaunch the program and try again")
 else:
     print("You chose " + PlayerChoice)
-    print("The computer is choosing now...")
+#    print("The computer is choosing now...")
     ComputerChoice = random.choice(["Rock", "Paper", "Scissors"])
     print("The Computer Chose " + ComputerChoice)
 
