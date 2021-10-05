@@ -25,19 +25,19 @@ else:
         Result = "Tie"
     elif PlayerChoice == "Rock":
         if ComputerChoice == "Scissors":
-            Result = "Computer"
-        else:
             Result = "Human"
+        else:
+            Result = "Computer"
     elif PlayerChoice == "Paper":
         if ComputerChoice == "Rock":
-            Result = "Computer"
-        else:
             Result = "Human"
+        else:
+            Result = "Computer"
     elif PlayerChoice == "Scissors":
-        if ComputerChoice == "Rock":
-            Result = "Computer"
-        else:
+        if ComputerChoice == "Paper":
             Result = "Human"
+        else:
+            Result = "Computer"
 
     if Result == "Tie":
         print("Tie! No winners.")
