@@ -3,14 +3,28 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import random
+
+PlayerChoice = input("Rock, Paper, or Scissors?")
+if PlayerChoice == "rock" or PlayerChoice == "Rock" or PlayerChoice == "r" or PlayerChoice == "R":
+    PlayerChoice = "Rock"
+elif PlayerChoice == "paper" or PlayerChoice == "Paper" or PlayerChoice == "p" or PlayerChoice == "P":
+    PlayerChoice = "Paper"
+elif PlayerChoice == "scissors" or PlayerChoice == "Scissors" or PlayerChoice == "s" or PlayerChoice == "S":
+    PlayerChoice = "Scissors"
+if PlayerChoice != "Rock" and PlayerChoice != "Paper" and PlayerChoice != "Scissors":
+    print("invalid input, relaunch the program and try again")
+else:
+    print("You chose " + PlayerChoice)
+    print("The computer is choosing now...")
+    ComputerChoice = random.choice(["Rock", "Paper", "Scissors"])
+    print("The Computer Chose " + ComputerChoice)
+
+    if PlayerChoice == ComputerChoice:
+        Result = "Tie"
+    elif PlayerChoice == "Rock":
+        if ComputerChoice = "Scissors":
+            Result = "Computer"
+        else
+            Result = "Human"
