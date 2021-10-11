@@ -38,6 +38,8 @@ else:
             Result = "Human"
         else:
             Result = "Computer"
+    else:
+        Result = "Error"
 
     if Result == "Tie":
         print("Tie! No winners.")
@@ -45,3 +47,5 @@ else:
         print("Congratulations, you win!")
     elif Result == "Computer":
         print("You lost to the computer.")
+    else:
+        print("Error")
