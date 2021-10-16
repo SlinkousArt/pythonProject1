@@ -3,14 +3,22 @@
 
 # Where the player chooses
 # playerIn = input("Rock, Paper, or Scissors?")
-# friendlyness
+# friendliness
 
 # import time
-# def functionthing(number):
+# def functionThing(number):
 #     for owo in range(number):
 #         print(owo + 1)
 #         # time.sleep(1)
 #
-# howmany = int(input("howmany"))
+# howMany = int(input("howMany"))
 #
-# functionthing(number=howmany)
+# functionThing(number=howMany)
+
+
+# Main Function. Run this whenever the game is to be played.
+def game():
+    print('function successfully triggered')
+
+
+game()
