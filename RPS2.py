@@ -21,4 +21,11 @@ def game():
     print('function successfully triggered')
 
 
+# testing stuff
+testNum = 0
+
+print("Starting. The number is ", testNum)
+
 game()
+
+print("Finished. The number is ", testNum)
