@@ -18,6 +18,7 @@
 # importing
 from time import sleep
 import os
+import sys
 # import curses
 
 
@@ -29,11 +30,29 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+# Typewriter effect
+# def typewrite(text):
+#     for letter in text:
+#         sys.stdout.write(letter)
+#         sys.stdout.flush()
+#         sleep(0.1)
+
+
+# nope
 def tutorial():
     print('This is literally a game of rock paper scissors, played against the computer.')
     print('I\'m too lazy to explain rock paper scissors, go look it up')
 
 
+# intro
+def intro():
+    print('Welcome To Rock, Paper, Scissors')
+    sleep(1)
+    print('Coded by slinkous')
+    sleep(2)
+    clear()
+
+# lets the player choose R, P, or S
 def choose():
     choice = input('Rock, Paper, or Scissors?')
     global playerChoice
@@ -41,6 +60,7 @@ def choose():
     verify()
 
 
+# verify that the choice is valid
 def verify():
     if playerChoice not in ["r", "p", "s"]:
         print("Invalid Choice, retry")
@@ -52,22 +72,18 @@ def verify():
 # Main Function. Run this whenever the game is to be played.
 def game():
     print('Game Started')
-    sleep(0.1)
+    sleep(0.75)
     clear()
     choose()
     verify()
 
 
 # random vars
-playerChoice = "e"
+playerChoice = "What's this OwO"
 
 
 # intro
-print('Welcome To Rock, Paper, Scissors')
-sleep(1)
-print('Coded by slinkous')
-sleep(2)
-clear()
+# intro()
 
 # Start
 playNow = input("Press Enter to Start")
