@@ -16,7 +16,7 @@
 # functionThing(number=howMany)
 
 # importing
-import time
+from time import sleep
 import os
 # import curses
 
@@ -37,13 +37,14 @@ def tutorial():
 # Main Function. Run this whenever the game is to be played.
 def game():
     print('Game Started')
+    sleep(0.1)
 
 
 # intro
 print('Welcome To Rock, Paper, Scissors')
-time.sleep(1)
+sleep(1)
 print('Coded by slinkous')
-time.sleep(5)
+sleep(5)
 clear()
 
 # Start
