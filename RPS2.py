@@ -95,6 +95,33 @@ def reveal():
     print('The computer chose', compChoice)
 
 
+# ok so this is the fun bit
+def calculate():
+    print("0-0")
+    global result
+    if playerChoice == compChoice:
+        result = "Tie"
+#    else:
+#        print('aaand this is the hard part. -_-')
+
+
+def announce():
+    if result is "Tie":
+        print("The game resulted in a tie")
+    elif result is "Human":
+        print("Congratulations, you win")
+    elif result is "Computer":
+        print("You lost to the computer")
+#    else:
+#        print("There was an error TwT")
+    # announce scores
+    if doScoring is True:
+        print("SCORE")
+        print("Wins:", wins)
+        print("Losses:", losses)
+        print("Ties:", ties)
+
+
 # Main Function. Run this whenever the game is to be played.
 def game():
     print('Game Started')
@@ -105,11 +132,21 @@ def game():
     wordify()
     comp_choose()
     reveal()
+    calculate()
+    announce()
 
 
 # random vars
 playerChoice = "What's this OwO"
 compChoice = "UwU"
+result = "TwT"
+# Scoring, not yet implemented
+doScoring = False
+
+wins = losses = ties = 0
+
+# clears the screen to start
+clear()
 
 # intro
 intro()
