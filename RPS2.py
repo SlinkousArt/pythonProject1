@@ -15,17 +15,38 @@
 #
 # functionThing(number=howMany)
 
+# importing
+import time
+import os
+# import curses
+
+
+# Curses setup
+# curses.initscr()
+
+# Random functions
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def tutorial():
+    print('This is literally a game of rock paper scissors, played against the computer.')
+    print('I\'m too lazy to explain rock paper scissors, go look it up')
+
 
 # Main Function. Run this whenever the game is to be played.
 def game():
-    print('function successfully triggered')
+    print('Game Started')
 
 
-# testing stuff
-testNum = 0
+# intro
+print('Welcome To Rock, Paper, Scissors')
+time.sleep(1)
+print('Coded by slinkous')
+time.sleep(5)
+clear()
 
-print("Starting. The number is ", testNum)
-
+# Start
+playNow = input("Press Enter to Start")
+clear()
 game()
-
-print("Finished. The number is ", testNum)
