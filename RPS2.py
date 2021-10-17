@@ -38,6 +38,7 @@ def choose():
     choice = input('Rock, Paper, or Scissors?')
     global playerChoice
     playerChoice = choice[0].lower()
+    verify()
 
 
 def verify():
@@ -45,7 +46,7 @@ def verify():
         print("Invalid Choice, retry")
         sleep(1)
         clear()
-        exit()
+        choose()
 
 
 # Main Function. Run this whenever the game is to be played.
