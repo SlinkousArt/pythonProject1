@@ -18,7 +18,8 @@
 # importing
 from time import sleep
 import os
-import sys
+import random
+# import sys
 # import curses
 
 
@@ -52,6 +53,7 @@ def intro():
     sleep(2)
     clear()
 
+
 # lets the player choose R, P, or S
 def choose():
     choice = input('Rock, Paper, or Scissors?')
@@ -69,21 +71,48 @@ def verify():
         choose()
 
 
+# set the single character things to full words
+def wordify():
+    global playerChoice
+    if playerChoice == "r":
+        playerChoice = "Rock"
+    if playerChoice == "p":
+        playerChoice = "Paper"
+    if playerChoice == "s":
+        playerChoice = "Scissors"
+
+
+# chooses for the computer
+def comp_choose():
+    global compChoice
+    compChoice = random.choice(["Rock", "Paper", "Scissors"])
+
+
+# reveal the choices
+def reveal():
+    print('You chose', playerChoice)
+    sleep(1)
+    print('The computer chose', compChoice)
+
+
 # Main Function. Run this whenever the game is to be played.
 def game():
     print('Game Started')
     sleep(0.75)
     clear()
     choose()
-    verify()
+    clear()
+    wordify()
+    comp_choose()
+    reveal()
 
 
 # random vars
 playerChoice = "What's this OwO"
-
+compChoice = "UwU"
 
 # intro
-# intro()
+intro()
 
 # Start
 playNow = input("Press Enter to Start")
