@@ -1,30 +1,8 @@
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-# import random
-
-# Where the player chooses
-# playerIn = input("Rock, Paper, or Scissors?")
-# friendliness
-
-# import time
-# def functionThing(number):
-#     for owo in range(number):
-#         print(owo + 1)
-#         # time.sleep(1)
-#
-# howMany = int(input("howMany"))
-#
-# functionThing(number=howMany)
-
 # importing
 from time import sleep
 import os
 import random
-# import sys
-# import curses
 
-
-# Curses setup
-# curses.initscr()
 
 # Random functions
 def clear():
