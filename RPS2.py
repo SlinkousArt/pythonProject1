@@ -208,7 +208,6 @@ playNow = input("Press Enter to Start")
 clear()
 game()
 replayyn()
-print("chose", playAgain)
 while playAgain in "y":
     print('playAgain triggered')
     clear()
