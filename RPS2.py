@@ -97,12 +97,57 @@ def reveal():
 
 # ok so this is the fun bit
 def calculate():
-    print("0-0")
     global result
-    if playerChoice == compChoice:
+    rock()
+    paper()
+    scissors()
+    calc1()
+
+
+def rock():
+    if playerChoice is "Rock":
+        global winAgainst, loseAgainst, tieAgainst
+        winAgainst = "Scissors"
+        loseAgainst = "Paper"
+        tieAgainst = "Rock"
+
+
+def paper():
+    if playerChoice is "Paper":
+        global winAgainst, loseAgainst, tieAgainst
+        winAgainst = "Rock"
+        loseAgainst = "Scissors"
+        tieAgainst = "Paper"
+
+
+def scissors():
+    if playerChoice is "Scissors":
+        global winAgainst, loseAgainst, tieAgainst
+        winAgainst = "Paper"
+        loseAgainst = "Rock"
+        tieAgainst = "Scissors"
+
+
+def calc1():
+    global result
+    if compChoice in winAgainst:
+        result = "Human"
+    elif compChoice in loseAgainst:
+        result = "Computer"
+    elif compChoice in tieAgainst:
         result = "Tie"
-#    else:
-#        print('aaand this is the hard part. -_-')
+    else:
+        result = "Error"
+
+
+def calc_score():
+    global wins, losses, ties, result
+    if result is "Tie":
+        ties += 1
+    elif result is "Human":
+        wins += 1
+    elif result is "Computer":
+        losses += 1
 
 
 def announce():
@@ -112,14 +157,40 @@ def announce():
         print("Congratulations, you win")
     elif result is "Computer":
         print("You lost to the computer")
-#    else:
-#        print("There was an error TwT")
+    else:
+        print("There was an error TwT")
     # announce scores
     if doScoring is True:
         print("SCORE")
-        print("Wins:", wins)
-        print("Losses:", losses)
-        print("Ties:", ties)
+        score()
+
+
+def score():
+    print("Wins:", wins)
+    print("Losses:", losses)
+    print("Ties:", ties)
+
+
+def wait():
+    sleep(2)
+    input("Press Enter to Continue")
+
+
+def replayyn():
+    yes_no = input('Play Again?')
+    global playAgain
+    playAgain = yes_no[0].lower()
+    checkyn()
+
+
+# verify that the choice is valid
+def checkyn():
+    global playAgain
+    if playAgain not in ["y", "n"]:
+        print("Invalid option, type \"yes\" or \"no\"")
+        sleep(1)
+        clear()
+        replayyn()
 
 
 # Main Function. Run this whenever the game is to be played.
@@ -133,25 +204,41 @@ def game():
     comp_choose()
     reveal()
     calculate()
+    calc_score()
+    sleep(1)
     announce()
+    wait()
+    clear()
 
 
 # random vars
 playerChoice = "What's this OwO"
 compChoice = "UwU"
 result = "TwT"
-# Scoring, not yet implemented
-doScoring = False
-
+winAgainst = tieAgainst = loseAgainst = "Error"
+playAgain = "n"
+playedAgain = False
+doScoring = True
 wins = losses = ties = 0
 
-# clears the screen to start
+# clear screen, play intro
 clear()
-
-# intro
 intro()
 
-# Start
+# Start the game
 playNow = input("Press Enter to Start")
 clear()
 game()
+replayyn()
+print("chose", playAgain)
+while playAgain in "y":
+    print('playAgain triggered')
+    clear()
+    game()
+    replayyn()
+    playedAgain = True
+if playedAgain is True and doScoring is True:
+    clear()
+    sleep(1)
+    print('Final Score:')
+    score()
