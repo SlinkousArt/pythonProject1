@@ -34,9 +34,8 @@ def intro():
 
 # lets the player choose R, P, or S
 def choose():
-    choice = input('Rock, Paper, or Scissors?')
     global playerChoice
-    playerChoice = choice[0].lower()
+    playerChoice = input('Rock, Paper, or Scissors?')[0].lower()
     verify()
 
 
@@ -155,9 +154,8 @@ def wait():
 
 
 def replayyn():
-    yes_no = input('Play Again?')
     global playAgain
-    playAgain = yes_no[0].lower()
+    playAgain = input('Play Again?')[0].lower()
     checkyn()
 
 
