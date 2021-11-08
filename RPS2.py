@@ -3,24 +3,14 @@ from time import sleep
 import os
 import random
 
+options = {"Rock": ("Scissors"),
+           "Paper": ("Rock"),
+           "Scissors": ("Paper")}
+
 
 # Random functions
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
-
-
-# Typewriter effect
-# def typewrite(text):
-#     for letter in text:
-#         sys.stdout.write(letter)
-#         sys.stdout.flush()
-#         sleep(0.1)
-
-
-# nope
-def tutorial():
-    print('This is literally a game of rock paper scissors, played against the computer.')
-    print('I\'m too lazy to explain rock paper scissors, go look it up')
 
 
 # intro
@@ -81,40 +71,14 @@ def calculate():
     calc1()
 
 
-def rock():
-    if playerChoice is "Rock":
-        global winAgainst, loseAgainst, tieAgainst
-        winAgainst = "Scissors"
-        loseAgainst = "Paper"
-        tieAgainst = "Rock"
-
-
-def paper():
-    if playerChoice is "Paper":
-        global winAgainst, loseAgainst, tieAgainst
-        winAgainst = "Rock"
-        loseAgainst = "Scissors"
-        tieAgainst = "Paper"
-
-
-def scissors():
-    if playerChoice is "Scissors":
-        global winAgainst, loseAgainst, tieAgainst
-        winAgainst = "Paper"
-        loseAgainst = "Rock"
-        tieAgainst = "Scissors"
-
-
 def calc1():
     global result
-    if compChoice in winAgainst:
-        result = "Human"
-    elif compChoice in loseAgainst:
-        result = "Computer"
-    elif compChoice in tieAgainst:
+    if compChoice == playerChoice:
         result = "Tie"
+    elif compChoice in options[playerChoice]:
+        result = "Human"
     else:
-        result = "Error"
+        result = "Computer"
 
 
 def calc_score():
