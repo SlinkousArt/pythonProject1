@@ -185,4 +185,3 @@ if playedAgain is True and doScoring is True:
     sleep(1)
     print('Final Score:')
     score()
-
