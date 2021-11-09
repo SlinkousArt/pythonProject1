@@ -3,9 +3,17 @@ from time import sleep
 import os
 import random
 
-options = {"Rock": ("Scissors"),
-           "Paper": ("Rock"),
-           "Scissors": ("Paper")}
+options = {"Rock": ["Scissors", "Lizard"],
+           "Paper": ["Rock", "Spock"],
+           "Scissors": ["Paper", "Lizard"],
+           "Lizard": ["Paper", "Spock"],
+           "Spock": ["Rock", "Scissors"]
+           }
+typo = {"Rock": ["r", "ro"],
+        "Paper": ["p", "pa"],
+        "Scissors": ["s", "sc"],
+        "Lizard": ["l", "li"],
+        "Spock": ["sp"]}
 
 
 # Random functions
@@ -15,7 +23,7 @@ def clear():
 
 # intro
 def intro():
-    print('Welcome To Rock, Paper, Scissors')
+    print('Welcome To Rock, Paper, Scissors, Lizard, Spock')
     sleep(1)
     print('Coded by slinkous')
     sleep(2)
@@ -25,13 +33,13 @@ def intro():
 # lets the player choose R, P, or S
 def choose():
     global playerChoice
-    playerChoice = input('Rock, Paper, or Scissors?')[0].lower()
+    playerChoice = input('Rock, Paper, Scissors, Lizard, or Spock?')[:2].lower()
     verify()
 
 
 # verify that the choice is valid
 def verify():
-    if playerChoice not in ["r", "p", "s"]:
+    if playerChoice not in ["r", "ro", "p", "pa", "s", "l", "li", "sc", "sp"]:
         print("Invalid Choice, retry")
         sleep(1)
         clear()
@@ -41,18 +49,22 @@ def verify():
 # set the single character things to full words
 def wordify():
     global playerChoice
-    if playerChoice == "r":
+    if playerChoice in typo["Rock"]:
         playerChoice = "Rock"
-    if playerChoice == "p":
+    if playerChoice in typo["Paper"]:
         playerChoice = "Paper"
-    if playerChoice == "s":
+    if playerChoice in typo["Scissors"]:
         playerChoice = "Scissors"
+    if playerChoice in typo["Lizard"]:
+        playerChoice = "Lizard"
+    if playerChoice in typo["Spock"]:
+        playerChoice = "Spock"
 
 
 # chooses for the computer
 def comp_choose():
     global compChoice
-    compChoice = random.choice(["Rock", "Paper", "Scissors"])
+    compChoice = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
 
 
 # reveal the choices
@@ -64,14 +76,6 @@ def reveal():
 
 # ok so this is the fun bit
 def calculate():
-    global result
-    rock()
-    paper()
-    scissors()
-    calc1()
-
-
-def calc1():
     global result
     if compChoice == playerChoice:
         result = "Tie"
@@ -181,3 +185,4 @@ if playedAgain is True and doScoring is True:
     sleep(1)
     print('Final Score:')
     score()
+
