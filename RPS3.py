@@ -15,6 +15,7 @@ compChoice = random.choice(["Rock", "Paper", "Scissors"])
 
 if playerChoice is compChoice:
     result = 'Tie'
-elif compChoice in
+else:
+    result = 'IDK'
 
 print('You chose', playerChoice, "\nThe computer chose", compChoice)
