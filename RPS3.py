@@ -67,4 +67,4 @@ while playing:
     clear()
 
 
-print('Final Scores:\nWins:', wins, "\nLosses:", losses, 'Ties:', ties)
+print('Final Scores:\nWins:', wins, "\nLosses:", losses, '\nTies:', ties)
