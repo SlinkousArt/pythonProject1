@@ -3,7 +3,7 @@ import os
 from autocorrect import Speller
 from time import sleep
 
-spell = Speller()
+
 RPSItems = {"Rock": ["Scissors", "Lizard"],
             "Paper": ["Rock", "Spock"],
             "Scissors": ["Paper", "Lizard"],
@@ -16,14 +16,7 @@ Messages = {
     "Computer": "You lost to the computer",
     "Invalid": "Invalid input, try again"
 }
-
-
-def clear():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
 ValidChoices = ['Rock', 'Paper', 'Scissors']
-# ValidChoices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
 
 
 def game():
@@ -33,7 +26,7 @@ def game():
         print('Choose one of the below:\n', ', '.join(ValidChoices))
         playerChoice = spell(input('')).capitalize()
         if playerChoice not in ValidChoices:
-            print('Invalid choice, try again')
+            print(Messages["Invalid"])
             sleep(1)
         clear()
     compChoice = random.choice(ValidChoices)
@@ -48,6 +41,13 @@ def game():
         losses += 1
     print('You chose', playerChoice, "\nThe computer chose", compChoice)
     print(Messages[result])
+
+
+spell = Speller()
+
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 wins = ties = losses = 0
