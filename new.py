@@ -7,3 +7,13 @@ while playagain == 'y':
 
 
 # import my_Funtions
+
+
+# class RPSItem:
+#     def __init__(self, wins):
+#         self.wins = wins
+#
+#
+# Rock = RPSItem(["Scissors"])
+# Paper = RPSItem(["Rock"])
+# Scissors = RPSItem(["Paper"])

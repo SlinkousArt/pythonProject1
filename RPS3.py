@@ -4,15 +4,6 @@ from autocorrect import Speller
 from time import sleep
 
 spell = Speller()
-
-# class RPSItem:
-#     def __init__(self, wins):
-#         self.wins = wins
-#
-#
-# Rock = RPSItem(["Scissors"])
-# Paper = RPSItem(["Rock"])
-# Scissors = RPSItem(["Paper"])
 RPSItems = {"Rock": ["Scissors", "Lizard"],
             "Paper": ["Rock", "Spock"],
             "Scissors": ["Paper", "Lizard"],
