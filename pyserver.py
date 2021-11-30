@@ -1,5 +1,6 @@
 # Python 3 server example
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import mimetypes
 import time
 
 hostName = "localhost"
@@ -9,9 +10,11 @@ serverPort = 8080
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        filepath = self.path
+        mimetype, _ = mimetypes.guess_type(filepath)
+        self.send_header("Content-type", mimetype)
         self.end_headers()
-        self.wfile.write(bytes("<html><head><title>test</title><link rel='stylesheet' href='/assets/css/main.css'></head>", "utf-8"))
+        self.wfile.write(bytes("<html><head><title>test</title><link rel='stylesheet' href='/assets/css/main.css'/></head></html>", "utf-8"))
         self.wfile.write(bytes("<p>Request: %s</p>" % self.path, "utf-8"))
         self.wfile.write(bytes("<body>", "utf-8"))
         self.wfile.write(bytes("<p>Rock, Paper, Scissors</p>", "utf-8"))
