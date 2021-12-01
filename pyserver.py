@@ -3,7 +3,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import mimetypes
 import time
 
-hostName = "localhost"
+hostName = "0.0.0.0"
 serverPort = 8080
 
 
@@ -14,10 +14,11 @@ class MyServer(BaseHTTPRequestHandler):
         mimetype, _ = mimetypes.guess_type(filepath)
         self.send_header("Content-type", mimetype)
         self.end_headers()
-        self.wfile.write(bytes("<html><head><title>test</title><link rel='stylesheet' href='/assets/css/main.css'/></head></html>", "utf-8"))
+        self.wfile.write(bytes("<html><head><title>test</title><style>html{font-family:monospace; color:green; background:black;}</style></head>", "utf-8"))
         self.wfile.write(bytes("<p>Request: %s</p>" % self.path, "utf-8"))
         self.wfile.write(bytes("<body>", "utf-8"))
-        self.wfile.write(bytes("<p>Rock, Paper, Scissors</p>", "utf-8"))
+        self.wfile.write(bytes("<p>Never Gonna Give You Up, Never gonna let you down, never gonna run around and</p>"
+                               "<p>get rickrolled lol</p>", "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
 
