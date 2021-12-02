@@ -1,4 +1,4 @@
-# import json
+import json
 
 import bcrypt
 #
@@ -14,13 +14,13 @@ import bcrypt
 # username = input('pick your username').lower()
 #
 
-passwd = input('input your password')
-
-salt = bcrypt.gensalt()
-hashed = bcrypt.hashpw(passwd.encode('utf-8'), salt)
-
-print(salt)
-print(hashed)
+# passwd = input('input your password')
+#
+# salt = bcrypt.gensalt()
+# hashed = bcrypt.hashpw(passwd.encode('utf-8'), salt)
+#
+# print(salt)
+# print(hashed)
 
 #
 # class user:
@@ -28,3 +28,9 @@ print(hashed)
 #         self.name = username
 #         self.hash = hashed
 #
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+info = json.loads(x)
+
+file = open("test.txt", "w")
+file.write(info["name"])
+file.close()
