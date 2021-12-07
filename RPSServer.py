@@ -1,5 +1,6 @@
-import string
-
+import random
+import json
+from os import path
 import cherrypy
 import os
 
@@ -16,6 +17,11 @@ Messages = {
     "Invalid": "Invalid input, try again"
 }
 ValidChoices = ['Rock', 'Paper', 'Scissors']
+
+
+# def write(toWrite):
+#     with open('stats.json', 'w', encoding='utf-8') as f:
+#         json.dump(toWrite, f, ensure_ascii=False, indent=4)
 
 class HelloWorld(object):
     @cherrypy.expose
@@ -64,6 +70,54 @@ class HelloWorld(object):
 
     @cherrypy.expose
     def results(self, name="nobody", choice='rock'):
+        username = name
+        # if path.exists('stats.json') is False:
+        #     x = {
+        #         username: {
+        #             "wins": 0,
+        #             "ties": 0,
+        #             "losses": 0
+        #         }
+        #     }
+        #     write(toWrite=x)
+        #
+        # with open('stats.json', 'r', encoding='utf-8') as infile:
+        #     globalStats = json.load(infile)
+        #
+        # if username not in globalStats:
+        #     globalStats[username] = {
+        #         "wins": 0,
+        #         "ties": 0,
+        #         "losses": 0
+        #     }
+        #     write(toWrite=globalStats)
+        #
+        # userStats = globalStats[username]
+        # wins = userStats['wins']
+        # ties = userStats['ties']
+        # losses = userStats['losses']
+        # wins = 0
+        # ties = 0
+        # losses = 0
+        playerChoice = choice
+        compChoice = random.choice(ValidChoices)
+        if playerChoice in compChoice:
+            result = 'Tie'
+            # ties += 1
+        elif compChoice in RPSItems[playerChoice]:
+            result = 'Human'
+            # wins += 1
+        else:
+            result = 'Computer'
+            # losses += 1
+        ChoiceMessage = ('You chose', playerChoice.upper(), "<br>The computer chose", compChoice.upper())
+        ResultMessage = (Messages[result])
+
+        # userStats['wins'] = wins
+        # userStats['ties'] = ties
+        # userStats['losses'] = losses
+        #
+        # write(toWrite=globalStats)
         return """<html>
           <head>
             <style>
@@ -85,7 +139,9 @@ class HelloWorld(object):
           <h2>RESULTS:</h2>
           username: """, name.upper(), """
           <br>
-          the game resulted in a """, choice.upper(), """
+          """, ChoiceMessage, """
+          <br>
+          """, ResultMessage, """
           <br><br><br>
           all stats:
           <br>
